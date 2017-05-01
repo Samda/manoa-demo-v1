@@ -1,1 +1,26 @@
-home page
+<%= form_tag root_path(current_user), :method => 'get' do %>
+<p>
+<p> Location : <%= text_field_tag :location, params[:location] %> </p>
+<p> Days : <%= text_field_tag :days, params[:days] %> </p>
+<p> Nights : <%= text_field_tag :nights, params[:nights] %> </p>
+<p> Budgets : <%= text_field_tag :budget, params[:budget] %> </p>
+<%= submit_tag "Search", :name => nil %>
+</p>
+<% end %>
+
+<hr/>
+<%if @tours.count > 1%>
+<h1> Search results for Duration: <%=@days%> Days/<%=@nights%> Nights | Location <%= @location %> </h1>
+
+<% @tours.each do |tour| %>
+	<hr/>
+	<% @account = tour.user.accounts.first %>
+	<p> Name : <%= @account.agency_name %> </p>
+	<p> Email : <%= @account.agency_email %> </p>
+	<p> SMS : <%= @account.agency_sms %> </p>
+	<p> What's up : <%= @account.whats_app %> </p>
+	<p> We Chat : <%= @account.we_chat %> </p>
+	<p> Manao Video Call </p>
+	<p> Manao Messenger </p>
+<% end %>
+<%end%>
