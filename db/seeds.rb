@@ -6,25 +6,64 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
+user = User.where(email: "demo1@manao.com").first_or_create(password: "12345678")
 
-user1 = User.create!(email: "demo1@manao.com", password: "12345678")
-
-account = user1.accounts.create!(
-					agency_name: "Angkor Travel",
+account = Account.where(agency_name: "Angkor Travel").first_or_create(
 					bank_detail: "xxx-xxx-xxx-xxx",
 					agency_sms: "012-999-999",
 					whats_app: "angkor-travel",
 					we_chat: "angkor-travel",
 					agency_email: "admin@angkortravel.com",
-					documents: "some documents"
-					quotations: "some qoutations"
-					country: "Cambodia"
-					city: "Siem Reap"
+					documents: "some documents",
+					quotations: "some qoutations",
+					country: "Cambodia",
+					city: "Siem Reap",
+					user: user
 				)
 
-tour = account.tours.create!(name: "Angkor1",
+tour = Tour.where(name: "Angkor1").first_or_create(
 										hotel_rating: 5,
 										number_of_days: 3,
 										number_of_night: 2,
-										location: "Siem Reap")
+										account: account
+										)
+
+user1 = User.where(email: "demo1@manao.com").first_or_create(password: "12345678")
+account1 = Account.where(agency_name: "Bali Travel").first_or_create(
+					bank_detail: "xxx-xxx-xxx-xxx",
+					agency_sms: "012-999-999",
+					whats_app: "angkor-travel",
+					we_chat: "angkor-travel",
+					agency_email: "admin@angkortravel.com",
+					documents: "some documents",
+					quotations: "some qoutations",
+					country: "Indonasia",
+					city: "Bali",
+					user: user1
+				)
+tour1 = Tour.where(name: "Angkor1").first_or_create(
+										hotel_rating: 5,
+										number_of_days: 3,
+										number_of_night: 2,
+										account: account1
+										)
+
+user2 = User.where(email: "demo2@manao.com").first_or_create(password: "12345678")
+account2 = Account.where(agency_name: "Lao Travel").first_or_create(
+					bank_detail: "xxx-xxx-xxx-xxx",
+					agency_sms: "012-999-999",
+					whats_app: "angkor-travel",
+					we_chat: "angkor-travel",
+					agency_email: "admin@angkortravel.com",
+					documents: "some documents",
+					quotations: "some qoutations",
+					country: "Lao",
+					city: "Bakse",
+					user: user2
+				)
+tour2 = Tour.where(name: "Angkor1").first_or_create(
+										hotel_rating: 5,
+										number_of_days: 3,
+										number_of_night: 2,
+										account: account2
+										)

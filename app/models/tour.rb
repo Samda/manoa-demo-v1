@@ -17,11 +17,11 @@ class Tour < ApplicationRecord
 	belongs_to :account
 
 	def self.by_country(name)
-		where(hotel_rating: name)
+		joins(:account).where("accounts.country ilike ?",  "%%#{name}%%")
 	end
 
 	def self.by_city(name)
-		where(hotel_rating: name)
+		joins(:account).where("accounts.city ilike ?",  "%%#{name}%%")
 	end
 
 	def self.by_number_of_day(number)
