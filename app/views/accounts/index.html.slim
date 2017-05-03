@@ -1,0 +1,35 @@
+h1
+  = @account.agency_name
+
+h4
+  | Email :
+  = @account.agency_email
+h4
+  | Bank Detail : 
+  = @account.bank_detail
+h4 
+  | Agency SMS : 
+  = @account.agency_sms
+h4
+  | What's up :  
+  = @account.whats_app
+h4 
+  | We Chat : 
+  = @account.we_chat
+
+h1 My Tours Database
+
+- @tours.each do |tour|
+ hr
+ h4
+  | Hotel Name: 
+  = tour.name
+ h4
+  | Hotel Rating: 
+  = tour.hotel_rating
+ h4
+  | Number of days: 
+  = tour.number_of_days
+ h4
+  | Number of night: 
+  = tour.number_of_night

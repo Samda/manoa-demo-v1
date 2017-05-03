@@ -1,0 +1,32 @@
+.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="#{root_path}" Manoa
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+      ul.nav.navbar-nav
+        = nav_link('Home', home_index_path)
+        = nav_link('About', about_index_path)
+        = nav_link('Contact', contact_index_path)
+      ul.nav.navbar-nav.navbar-right
+        - if !user_signed_in?
+          = nav_link('Login', new_user_session_path)
+          = nav_link('Sign up', new_user_registration_path)
+        - if user_signed_in?
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+              = current_user.email
+              span.caret
+            ul.dropdown-menu role="menu"
+              = nav_link('Account', user_accounts_path(current_user))
+              = nav_link('Edit profile', edit_user_registration_path)
+              li.divider
+              = nav_link('Sign Out', destroy_user_session_path, :delete)
+      / form.navbar-form.navbar-left role="search"
+      /   div.form-group
+      /     input.form-control type="text" placeholder="Search"
+      /   button type="submit" class="btn btn-default" Submit

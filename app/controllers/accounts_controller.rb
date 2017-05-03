@@ -1,4 +1,4 @@
-class AccountsController < ApplicationController
+class AccountsController < SecureController
 	def index
 		@user = User.find(params[:user_id])
 		@account = @user.accounts.first
