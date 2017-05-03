@@ -2,7 +2,7 @@
 	.row
 		.col-md-6
 			.form-group
-				| Location : 
+				| Destination : 
 				= text_field_tag :location, params[:location], class: 'form-control'
 	.row
 		.col-md-6
@@ -27,7 +27,7 @@ hr
 	- if @tours.count > 1
 	h3
 		| Search results for Duration: 
-		="#{@days} Days/ #{@nights} Nights | Location #{@location}"
+		="#{@days} Days/ #{@nights} Nights | Destination #{@location}"
 
 	- @tours.each do |tour|
 		hr
