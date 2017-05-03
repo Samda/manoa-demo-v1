@@ -13,7 +13,6 @@
 #
 
 class Tour < ApplicationRecord
-	belongs_to :user
 	belongs_to :account
 
 	def self.by_country(name)
