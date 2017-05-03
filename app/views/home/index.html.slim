@@ -3,25 +3,22 @@
 		.col-md-6
 			.form-group
 				| Destination : 
-				= text_field_tag :location, params[:location], class: 'form-control'
-	.row
+				= text_field_tag :location, params[:location], class: 'form-control input-sm'
+		.col-md-6
+			.form-group
+				| Days :
+				= text_field_tag :days, params[:days], class: 'form-control input-sm'
+		.col-md-6
+			.form-group
+				| Nights :
+				= text_field_tag :nights, params[:nights], class: 'form-control input-sm'
 		.col-md-6
 			.form-group 
-				| Days : 
-				= text_field_tag :days, params[:days], class: 'form-control'
-	.row
-		.col-md-6
-			.form-group 
-				| Nights : 
-				= text_field_tag :nights, params[:nights], class: 'form-control'
-	.row
-		.col-md-6
-			.form-group 
-				| Budgets : 
-				= text_field_tag :budget, params[:budget], class: 'form-control'
+				| Budgets :
+				= text_field_tag :budget, params[:budget], class: 'form-control input-sm'
 	.row
 		.col-md-12
-			= submit_tag "Search", :name => nil, class: 'btn btn-primary'
+			= submit_tag "Search", :name => nil, class: 'btn btn-primary btn-sm'
 hr
 .row
 	- if @tours.count > 1

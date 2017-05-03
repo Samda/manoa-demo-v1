@@ -9,7 +9,7 @@
 User.destroy_all
 
 user1 = User.create!(email: "demo1@manao.com", password: "12345678")
-user1.accounts.create!(agency_name: "Angkor Travel", 
+user1.accounts.create!(agency_name: "Angkor Travel",
 					bank_detail: "xxx-xxx-xxx-xxx",
 					agency_sms: "012-999-999",
 					whats_app: "angkor-travel",
@@ -29,10 +29,8 @@ user1.tours.create!(name: "Angkor2",
 										number_of_night: 1,
 										location: "Siem Reap")
 
-
-
 user2 = User.create!(email: "demo2@manao.com", password: "12345678")
-user2.accounts.create!(agency_name: "Cambodia Travel", 
+user2.accounts.create!(agency_name: "Cambodia Travel",
 					bank_detail: "xxx-xxx-xxx-xxx",
 					agency_sms: "012-999-999",
 					whats_app: "cambodia-travel",
@@ -47,7 +45,7 @@ user2.tours.create!(name: "Cambodia",
 										location: "Siem Reap")
 
 user3 = User.create!(email: "demo3@manao.com", password: "12345678")
-user3.accounts.create!(agency_name: "Sohkphan Travel", 
+user3.accounts.create!(agency_name: "Sohkphan Travel",
 					bank_detail: "xxx-xxx-xxx-xxx",
 					agency_sms: "012-999-999",
 					whats_app: "sohkphan-travel",
@@ -59,5 +57,3 @@ user3.tours.create!(name: "Sohkphan",
 										number_of_days: 3,
 										number_of_night: 2,
 										location: "Siem Reap")
-
-

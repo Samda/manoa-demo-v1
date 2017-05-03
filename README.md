@@ -1,11 +1,8 @@
-# README
+# Welcome to Manoa
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
+| bundle exec rails db:create
+| bundle exec rails db:migrate
+| bundle exec rails db:seed
 
 * System dependencies
 
