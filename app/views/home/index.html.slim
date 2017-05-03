@@ -1,48 +1,49 @@
-= form_tag root_path(current_user), :method => 'get' do
+= simple_form_for @grids, :method => :get, :url => home_index_path do |f|
 	.row
-		.col-md-6
+		.col-md-3
 			.form-group
-				| Destination : 
-				= text_field_tag :location, params[:location], class: 'form-control input-sm'
-		.col-md-6
+				= f.input :by_country, collection: [],  label: 'Destination', input_html: { class: 'form-control input-sm' }
+		.col-md-3
 			.form-group
-				| Days :
-				= text_field_tag :days, params[:days], class: 'form-control input-sm'
-		.col-md-6
+				= f.input :by_city, collection: [], label: '', input_html: { class: 'form-control input-sm'}, prompt: 'Choose a city ...'
+	.row
+		.col-md-3
 			.form-group
-				| Nights :
-				= text_field_tag :nights, params[:nights], class: 'form-control input-sm'
-		.col-md-6
-			.form-group 
-				| Budgets :
-				= text_field_tag :budget, params[:budget], class: 'form-control input-sm'
+				= f.input :by_number_of_day, collection: 1..10, prompt: 'select number of day', label: 'Number of day', input_html: { class: 'form-control input-sm'}
+		.col-md-3
+			.form-group
+				= f.input :by_number_of_night, collection: 1..10, prompt: 'select number of night',  label: 'Number of night', input_html: { class: 'form-control input-sm'}
+	.row
+		.col-md-3
+			.form-group
+				= f.input :by_hotel_rate, collection: 1..5, prompt: 'Choose rate', label: 'Hotel rate', input_html: { class: 'form-control input-sm' }
 	.row
 		.col-md-12
-			= submit_tag "Search", :name => nil, class: 'btn btn-primary btn-sm'
-hr
+			= f.submit "Search", class: 'btn btn-primary btn-sm'
 .row
-	- if @tours.count > 1
 	h3
 		| Search results for Duration: 
 		="#{@days} Days/ #{@nights} Nights | Destination #{@location}"
-
-	- @tours.each do |tour|
-		hr
-		- @account = tour.user.accounts.first
-		p 
-			|Name : 
-			= @account.agency_name
-		p 
-			|Email : 
-			= @account.agency_email
-		p 
-			|SMS : 
-			= @account.agency_sms
-		p 
-			|What's up : 
-			= @account.whats_app
-		p 
-			|We Chat : 
-			= @account.we_chat
-		p Manao Video Call
-		p Manao Messenger
+	-if @grids.present?
+		- @grids.assets.each do |tour|
+			hr
+			- @account = tour.account
+			p 
+				|Name : 
+				= @account.agency_name
+			p 
+				|Email : 
+				= @account.agency_email
+			p 
+				|SMS : 
+				= @account.agency_sms
+			p 
+				|What's up : 
+				= @account.whats_app
+			p 
+				|We Chat : 
+				= @account.we_chat
+			p Manao Video Call
+			p Manao Messenger
+javascript:
+	populateCountries("tours_grid_by_country", "tours_grid_by_city");

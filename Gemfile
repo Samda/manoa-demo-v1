@@ -17,10 +17,12 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'rails_12factor', group: :production
-
+gem 'datagrid'
 gem 'devise'
 gem 'simple_form'
 gem 'slim'
+gem 'will_paginate-bootstrap'
+gem 'annotate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
