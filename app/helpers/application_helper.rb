@@ -10,4 +10,8 @@ module ApplicationHelper
       end
     end
   end
+
+  def css_class_name
+    "#{controller.controller_path.split('/')[0].tr('_', '-')}-#{action_name}"
+  end
 end

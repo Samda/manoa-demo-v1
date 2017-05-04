@@ -6,12 +6,16 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href="#{root_path}" Manoa
+      a.navbar-brand href="#{root_path}"
+        = image_tag 'full_logo_green.png', alt: 'Manoa', width: '150px', class: 'logo'
+        / Manoa
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       ul.nav.navbar-nav
+
         = nav_link('Search', home_index_path)
+        = nav_link('Account', user_accounts_path(current_user))
         = nav_link('About', about_index_path)
-        = nav_link('Contact', contact_index_path)
+        / = nav_link('Contact', contact_index_path)
       ul.nav.navbar-nav.navbar-right
         - if !user_signed_in?
           = nav_link('Login', new_user_session_path)
