@@ -40,21 +40,43 @@
                     h4
                       a
                         / = @account.agency_name
-                        = tour.name
+                        - tour.hotel_rating.times do
+                          = image_tag 'star', size: '14x14'
+                        = " #{tour.name}"
                       small.truncate.block
                         = "in #{@account.city}, #{@account.country}"
                       small.mt
                         = @account.agency_email
-                  .col-sm-4.info.hidden-xs.valign
+                  .col-sm-3.info.hidden-xs.valign
 
                   .col-sm-1.col-xs-2.text-center.action.valign
                     - if statuses.sample == 'active'
                       .online
                     - else
-                      | 5mn
+                      = ['5mn', '3mn', '7mn'].sample
+                  .col-sm-1.hidden-xs.info.bg-lighter.valign.go-right
+                    = image_tag 'messenger.png', size: '40x40', class: 'icon-messenger messenger-trigger'
                   .col-sm-1.hidden-xs.info.bg-lighter.valign
-                    = image_tag 'messenger.png', size: '40x40', class: 'icon-messenger'
-                    = image_tag 'video_call.jpg', size: '40x40'
+                    = image_tag 'video_call.jpg', size: '40x40', class: 'video-trigger'
+.messenger.md-whiteframe-z2
+  .title
+    | Messenger
+    button#btn-close.btn.btn-mini.btn-link x
+  .body
+    div.wrapper
+      .message-a
+        | Hi Mr. A!
+    div.wrapper
+      .message-b
+       | Hello Mr. B!
+
+.video
+  .title
+    | Video Call
+    button#close-video.btn.btn-mini.btn-link x
+  div
+    =image_tag 'a.jpg', class: 'vi-a'
+    =image_tag 'b.png', class: 'vi-b'
 
 javascript:
 	populateCountries("tours_grid_by_country", "tours_grid_by_city");
