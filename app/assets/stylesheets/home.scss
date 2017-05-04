@@ -18,6 +18,14 @@
     }
   }
 
+  .items li {
+    position: relative;
+  }
+
+  .business-listing.count, .business-profile.count {
+    counter-increment: list-count;
+  }
+
   .company-list {
     list-style: none;
     padding: 0;
@@ -59,6 +67,17 @@
   }
   .business-listing a:not(.btn-danger):not(.btn-primary):not(.btn-muted), .business-profile a:not(.btn-danger):not(.btn-primary):not(.btn-muted) {
     color: #2b3c4e;
+  }
+
+  .business-listing.count:before, .business-profile.count:before {
+    content: counter(list-count);
+    position: absolute;
+    top: 52px;
+    left: -35px;
+    width: 25px;
+    text-align: right;
+    font-size: 10px;
+    color: #a9b6b6;
   }
 
   .mt {

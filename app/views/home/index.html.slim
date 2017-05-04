@@ -38,13 +38,14 @@
 	h3 Search results for Duration:
 	- if @params.present?
     ="#{@days} Days/ #{@nights} Nights | Destination #{@location} | Hotel rate: #{@hotel}"
-    - @grids.assets.each do |tour|
-      - @account = tour.account
-      .row-fluid
-        #list-items.list-view
-          ul.company-list
-            .items
-              .business-listing.clearfix.status-invite.count
+
+    .row-fluid
+      #list-items.list-view
+        ul.company-list
+          .items
+            - @grids.assets.each do |tour|
+              - @account = tour.account
+              li.business-listing.clearfix.status-invite.count
                 label.item-label.clearfix.valign
                   .col-sm-1.image.ui-shadow.hidden-xs
                     a= image_tag 'logo.jpg', width: '30px'
