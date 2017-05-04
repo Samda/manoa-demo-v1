@@ -1,3 +1,93 @@
 // Place all the styles related to the accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#accounts-index {
+  .messenger {
+    display: none;
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    bottom: 0;
+    width: 332px;
+    background-color: #fff;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .messenger.open {
+    display: block;
+  }
+
+  #btn-close {
+    float: right;
+  }
+
+  .title {
+    background-color: #eee;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 16px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .wrapper {
+    clear: both;
+  }
+  .message-a {
+    float: left;
+    background-color: #f7f7f7;
+  }
+
+  .message-b {
+    float: right;
+    background-color: #2196F3;
+    color: #fff;
+  }
+
+  .message-a, .message-b {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .md-whiteframe-z2 {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  // video
+  .video {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: none;
+
+    .title {
+      background-color: #eee;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 16px;
+      border-radius: 3px 3px 0 0;
+      clear: both;
+    }
+    #close-video {
+      position: absolute;
+      right: 0;
+    }
+
+    .vi-a {
+      margin-right: 5px;
+    }
+    .vi-b {
+
+    }
+    .vi-a, .vi-b {
+      width: 292px;
+      height: 224px;
+      float: left;
+    }
+  }
+
+  .video.open {
+    display: block;
+  }
+}

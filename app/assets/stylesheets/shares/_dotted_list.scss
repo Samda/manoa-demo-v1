@@ -1,0 +1,54 @@
+// Font-size
+$font-xxs: 9px;
+$font-xs: 10px;
+$font-sm: 11px;
+$font-md: 12px;
+$font-df: 13px; //default
+$font-lg: 14px;
+$font-xl: 20px;
+ul.dotted-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    background: image-url('dotted_line.png') repeat-x scroll 100% 14px;
+    line-height: 20px;
+    position: relative;
+
+    span {
+      background-color: white;
+
+      &.value {
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: right;
+        font-size: $font-md;
+
+        img {
+          margin-right: -2px;
+        }
+      }
+
+      &.type {
+        font-size: $font-sm;
+      }
+    }
+  }
+}
+
+ul.dotted-list-none {
+  background: none;
+}
+
+ul.dotted-list-elipsis {
+  li {
+    span.value {
+      max-width: 70%;
+      -o-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+    }
+  }
+}

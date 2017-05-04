@@ -1,36 +1,84 @@
 .row
   .col-md-12
-    h1 Account
+    h3= @account.agency_name
 .row
   .col-md-3
     .thumbnail href="#" mailto="office@manoa.asia"
       = image_tag "small_logo.png", alt: "Manoa", class: 'img-rounded'
 .row
   .col-md-6
-    h4
-      = @account.agency_name
     p
-      = "Email : #{@account.agency_email}"
-    p
-      = "Bank Detail : #{@account.bank_detail}"
-    p
-      = "Agency SMS : #{@account.agency_sms}"
-    p
-      = "What's up : #{@account.whats_app}"
-    p
-      = "We Chat : #{@account.we_chat}"
-    hr
+      ul.dotted-list
+        li
+          span Email
+          span.value= @account.agency_email
+        li
+          span Bank Detail
+          span.value= "3704 0044 0532 0130 00"
+          / @account.bank_detail
+        li
+          span MANOA Messenger
+          span.value
+            = link_to "#", id: 'messenger'
+              | click
+        li
+          span MANOA Video Call
+          span.value
+            = link_to "#", id: 'video'
+              | click
 
-.row
-  .col-md-6
-    h4 My Tours Database
-    - @tours.each do |tour|
-      p
-      = "Hotel Name: #{tour.name}"
-      p
-      = "Hotel Rating: #{tour.hotel_rating}"
-      p
-      = "Number of days: #{tour.number_of_days}"
-      p
-      = "Number of night: #{tour.number_of_night}"
-      hr
+.messenger.md-whiteframe-z2
+  .title
+    | Messenger
+    button#btn-close.btn.btn-mini.btn-link x
+  .body
+    div.wrapper
+      .message-a
+        | Hi Mr. A!
+    div.wrapper
+      .message-b
+       | Hello Mr. B!
+
+.video
+  .title
+    | Video Call
+    button#close-video.btn.btn-mini.btn-link x
+  div
+    =image_tag 'a.jpg', class: 'vi-a'
+    =image_tag 'b.png', class: 'vi-b'
+/ li
+/   span test
+/   span.value
+/     a.dropdown-toggle data-toggle="dropdown" href="#"
+/       | Dropdown
+/       b.caret
+/     ul.dropdown-menu aria-labelledby="dLabel" role="menu"
+/       li
+/         a test
+/       li
+/         a test
+
+
+/ .dropdown
+/   a#dLabel.dropdown-toggle data-target="#" data-toggle="dropdown" href="#" role="button"
+/     | Dropdown
+/     b.caret
+/   ul.dropdown-menu aria-labelledby="dLabel" role="menu"
+/     | \...
+
+
+
+
+/ .row
+/   .col-md-6
+/     h4 My Tours Database
+/     - @tours.each do |tour|
+/       p
+/       = "Hotel Name: #{tour.name}"
+/       p
+/       = "Hotel Rating: #{tour.hotel_rating}"
+/       p
+/       = "Number of days: #{tour.number_of_days}"
+/       p
+/       = "Number of night: #{tour.number_of_night}"
+/       hr
