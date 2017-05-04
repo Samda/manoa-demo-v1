@@ -33,39 +33,29 @@
 			small Select day and nights to <kbd>5</kbd> is try to search for all tour companies with minimum 5 days travel.
 			br
 			small Select nothing to search for all tour companies in database.
-			
+
 .row
-	h3
-		| Search results for Duration: 
-	-if @params.present?
-		="#{@days} Days/ #{@nights} Nights | Destination #{@location} | Hotel rate: #{@hotel}"
-		- @grids.assets.each do |tour|
-			hr
-			- @account = tour.account
-			.row
-				.col-md-12
-					p 
-						|Name : 
-						= @account.agency_name
-					p
-						|Country : 
-						= @account.country
-					p
-						|City : 
-						= @account.city
-					p 
-						|Email : 
-						= @account.agency_email
-					p 
-						|SMS : 
-						= @account.agency_sms
-					p 
-						|What's up : 
-						= @account.whats_app
-					p 
-						|We Chat : 
-						= @account.we_chat
-					p Manao Video Call
-					p Manao Messenger
+	h3 Search results for Duration:
+	- if @params.present?
+    ="#{@days} Days/ #{@nights} Nights | Destination #{@location} | Hotel rate: #{@hotel}"
+    - @grids.assets.each do |tour|
+      - @account = tour.account
+      .row-fluid
+        #list-items.list-view
+          ul.company-list
+            .items
+              .business-listing.clearfix.status-invite.count
+                label.item-label.clearfix.valign
+                  .col-sm-1.image.ui-shadow.hidden-xs
+                    a= image_tag 'logo.jpg', width: '30px'
+                  .col-sm-5.col-xs-10.company.valign
+                    h4
+                      a
+                        = @account.agency_name
+                      small.truncate.block
+                        = "in #{@account.city}, #{@account.country}"
+                      small.mt
+                        = @account.agency_email
+
 javascript:
 	populateCountries("tours_grid_by_country", "tours_grid_by_city");
