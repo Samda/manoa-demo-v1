@@ -16,9 +16,9 @@
         = nav_link('Search', home_index_path)
         = nav_link('Account', user_accounts_path(current_user))
         = nav_link('About', about_index_path)
-        = nav_link('My Contact', about_index_path)
-        = nav_link('My Transaction', about_index_path)
-        = nav_link('News', about_index_path)
+        = nav_link('My Contact', "#")
+        = nav_link('My Transaction', "#")
+        = nav_link('News', "#")
         / = nav_link('Contact', contact_index_path)
       ul.nav.navbar-nav.navbar-right
         - if !user_signed_in?
