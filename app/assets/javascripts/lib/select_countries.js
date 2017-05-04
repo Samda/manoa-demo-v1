@@ -1,5 +1,6 @@
 
-var country_arr = new Array("Cambodia", "Indonesia", "Philippines", "Lao", "Vietnam", "Thailand");
+// var country_arr = new Array("Cambodia", "Indonesia", "Philippines", "Lao", "Vietnam", "Thailand");
+var country_arr = new Array("Cambodia", "Indonesia", "Lao");
 
 // States
 var s_a = new Array();

@@ -1,62 +1,60 @@
 .row
-	.col-md-6
-		= simple_form_for @grids, :method => :get, :url => home_index_path do |f|
-			.row
-				.col-md-6
-					.form-group
-						= f.input :by_country, collection: [],  label: 'Destination', input_html: { class: 'form-control input-sm' }, prompt: 'Choose a country ...'
-				.col-md-6
-					.form-group
-						= f.input :by_city, collection: [], label: '', input_html: { class: 'form-control input-sm'}, prompt: 'Choose a city ...'
-			.row
-				.col-md-6
-					.form-group
-						= f.input :by_number_of_day, collection: 1..10, prompt: 'select number of day',  label: 'Number of night', input_html: { class: 'form-control input-sm' }
-				.col-md-6
-					.form-group
-						= f.input :by_number_of_night, collection: 1..10, prompt: 'select number of night',  label: 'Number of night', input_html: { class: 'form-control input-sm' }
-			.row
-				.col-md-6
-					.form-group
-						= f.input :by_hotel_rate, collection: 1..5, label: 'Hotel rate', input_html: { class: 'form-control input-sm' }, prompt: 'Choose rate'
-			.row
-				.col-md-6
-					= f.submit "Search", class: 'btn btn-primary btn-sm'
-					= link_to("Reset", home_index_path, class: 'btn btn-default btn-sm')
-	.col-md-6
-		.jumbotron
-			h4 Demo search examples:
-			small Select hotel rate to <kbd>5</kbd> is try to search for al tour companies that provide 5 stars hotel.
-			br
-			small Select country to <kbd>Cambodia</kbd> is try to search for all tour companies in Cambodia.
-			br
-			small Select day and nights to <kbd>5</kbd> is try to search for all tour companies with minimum 5 days travel.
-			br
-			small Select nothing to search for all tour companies in database.
+  .col-md-6
+    = simple_form_for @grids, :method => :get, :url => home_index_path do |f|
+      .row
+        .col-md-6
+          .form-group
+            = f.input :by_country, collection: [],  label: 'Destination', input_html: { class: 'form-control input-sm' }, prompt: 'Choose a country ...'
+        .col-md-6
+          .form-group
+            = f.input :by_tour_type, collection: [], label: 'Tour Type', input_html: { class: 'form-control input-sm'}, prompt: 'Choose a tour type ...'
+      .row
+        .col-md-6
+          .form-group
+            = f.input :by_number_of_day, collection: 1..10, prompt: 'Select number of day',  label: 'How many days', input_html: { class: 'form-control input-sm' }
+        .col-md-6
+          .form-group
+            = f.input :by_budget, collection: 1..10, prompt: 'Select budget', label: 'Budget', input_html: { class: 'form-control input-sm' }
+      .row
+        .col-md-6
+          = f.submit "Search", class: 'btn btn-primary btn-sm'
+          = link_to("Reset", home_index_path, class: 'btn btn-default btn-sm')
 
 .row
-	h3 Search results for Duration:
-	- if @params.present?
-    ="#{@days} Days/ #{@nights} Nights | Destination #{@location} | Hotel rate: #{@hotel}"
-
+  - if @params.present?
+    h4= pluralize(@grids.assets.size, 'Listing')
     .row-fluid
       #list-items.list-view
         ul.company-list
           .items
+            - logos = ['logo.jpg', 'b.png']
+            - statuses = ['active', 'inactive']
             - @grids.assets.each do |tour|
               - @account = tour.account
               li.business-listing.clearfix.status-invite.count
                 label.item-label.clearfix.valign
                   .col-sm-1.image.ui-shadow.hidden-xs
-                    a= image_tag 'logo.jpg', width: '30px'
+
+                    a= image_tag logos.sample, width: '30px'
                   .col-sm-5.col-xs-10.company.valign
                     h4
                       a
-                        = @account.agency_name
+                        / = @account.agency_name
+                        = tour.name
                       small.truncate.block
                         = "in #{@account.city}, #{@account.country}"
                       small.mt
                         = @account.agency_email
+                  .col-sm-4.info.hidden-xs.valign
+
+                  .col-sm-1.col-xs-2.text-center.action.valign
+                    - if statuses.sample == 'active'
+                      .online
+                    - else
+                      | 5mn
+                  .col-sm-1.hidden-xs.info.bg-lighter.valign
+                    = image_tag 'messenger.png', size: '40x40', class: 'icon-messenger'
+                    = image_tag 'video_call.jpg', size: '40x40'
 
 javascript:
 	populateCountries("tours_grid_by_country", "tours_grid_by_city");

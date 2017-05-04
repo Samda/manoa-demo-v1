@@ -4,7 +4,7 @@ class HomeController < SecureController
 		if @params
 			@days = @params[:by_number_of_day]
 			@nights = @params[:by_number_of_day]
-			@location = @params[:by_country]
+      @location = @params[:by_country]
 			@hotel = @params[:by_hotel_rate]
 		end
 

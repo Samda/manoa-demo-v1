@@ -28,6 +28,14 @@ class Tour < ApplicationRecord
 		where(number_of_days: number)
 	end
 
+  def self.by_tour_type(tour_type)
+    # where(number_of_days: tour_type)
+  end
+
+  def self.by_budget(amount)
+    # where(number_of_days: tour_type)
+  end
+
 	def self.by_number_of_night(number)
 		where(number_of_night: number)
 	end

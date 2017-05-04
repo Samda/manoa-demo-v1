@@ -10,4 +10,7 @@ class ToursGrid
   filter(:by_number_of_day)
   filter(:by_number_of_night)
   filter(:by_hotel_rate)
+  # new fields
+  filter(:by_tour_type)
+  filter(:by_budget)
 end
