@@ -1,0 +1,15 @@
+.mano-navbar {
+  background-color: #39b54a;
+  a {
+    color: white;
+  }
+
+  .navbar-right .dropdown.open {
+    ul.dropdown-menu {
+      li.active a, a:hover{
+        background-color: #39b54a !important;
+      }
+    }
+
+  }
+}
