@@ -18,11 +18,14 @@
           / @account.bank_detail
         li
           span MANOA Messenger
-          span.value= @account.agency_sms
-
+          span.value
+            = link_to "#", class: 'messenger-trigger'
+              = "#{['5mn', '3mn', '7mn'].sample} ago"
         li
           span MANOA Video Call
-          span.value= @account.agency_sms
+          span.value
+            = link_to "#", class: 'video-trigger'
+              = "#{['5mn', '3mn', '7mn'].sample} ago"
 
 .row
   .col-md-6
@@ -30,29 +33,33 @@
       button.btn.btn-info My Documents
       button.btn.btn-info My Quotations
 
-/ li
-/   span test
-/   span.value
-/     a.dropdown-toggle data-toggle="dropdown" href="#"
-/       | Dropdown
-/       b.caret
-/     ul.dropdown-menu aria-labelledby="dLabel" role="menu"
-/       li
-/         a test
-/       li
-/         a test
 
+.messenger.md-whiteframe-z2
+  .title
+    | Messenger
+    button#btn-close.btn.btn-mini.btn-link x
+  .body
+    .wrapper
+      .message-a
+        | Hi Mr. B!
+    .wrapper
+      .message-b
+       | Hello Mr. A!
+    .wrapper
+      .message-a
+        | So nice to know you, Mr.B!
 
-/ .row
-/   .col-md-6
-/     h4 My Tours Database
-/     - @tours.each do |tour|
-/       p
-/       = "Hotel Name: #{tour.name}"
-/       p
-/       = "Hotel Rating: #{tour.hotel_rating}"
-/       p
-/       = "Number of days: #{tour.number_of_days}"
-/       p
-/       = "Number of night: #{tour.number_of_night}"
-/       hr
+.video.video-message.md-whiteframe-z2
+  .title
+    | Video Call
+    button#close-video.btn.btn-mini.btn-link x
+  .body
+    .wrapper
+      .message-a
+        | Partner 1
+    .wrapper
+      .message-a
+       | Partner 2
+    .wrapper
+      .message-a
+        | Partner 3
