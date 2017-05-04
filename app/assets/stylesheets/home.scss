@@ -22,7 +22,10 @@
 
 #home-index {
   .icon-messenger {
-    margin-right: 16px;
+    // margin-right: 16px;
+  }
+  .go-right {
+    justify-content: flex-end;
   }
   h4 {
     a, a:hover {

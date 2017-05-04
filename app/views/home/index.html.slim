@@ -45,15 +45,16 @@
                         = "in #{@account.city}, #{@account.country}"
                       small.mt
                         = @account.agency_email
-                  .col-sm-4.info.hidden-xs.valign
+                  .col-sm-3.info.hidden-xs.valign
 
                   .col-sm-1.col-xs-2.text-center.action.valign
                     - if statuses.sample == 'active'
                       .online
                     - else
                       | 5mn
-                  .col-sm-1.hidden-xs.info.bg-lighter.valign
+                  .col-sm-1.hidden-xs.info.bg-lighter.valign.go-right
                     = image_tag 'messenger.png', size: '40x40', class: 'icon-messenger'
+                  .col-sm-1.hidden-xs.info.bg-lighter.valign
                     = image_tag 'video_call.jpg', size: '40x40'
 
 javascript:
