@@ -18,14 +18,11 @@
           / @account.bank_detail
         li
           span MANOA Messenger
-          span.value
-            = link_to "#", id: 'messenger'
-              | click
+          span.value= @account.agency_sms
+
         li
           span MANOA Video Call
-          span.value
-            = link_to "#", id: 'video'
-              | click
+          span.value= @account.agency_sms
 
 .row
   .col-md-6
@@ -33,26 +30,6 @@
       button.btn.btn-info My Documents
       button.btn.btn-info My Quotations
 
-
-.messenger.md-whiteframe-z2
-  .title
-    | Messenger
-    button#btn-close.btn.btn-mini.btn-link x
-  .body
-    div.wrapper
-      .message-a
-        | Hi Mr. A!
-    div.wrapper
-      .message-b
-       | Hello Mr. B!
-
-.video
-  .title
-    | Video Call
-    button#close-video.btn.btn-mini.btn-link x
-  div
-    =image_tag 'a.jpg', class: 'vi-a'
-    =image_tag 'b.png', class: 'vi-b'
 / li
 /   span test
 /   span.value
