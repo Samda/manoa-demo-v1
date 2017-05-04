@@ -40,7 +40,9 @@
                     h4
                       a
                         / = @account.agency_name
-                        = tour.name
+                        - tour.hotel_rating.times do
+                          = image_tag 'star', size: '14x14'
+                        = " #{tour.name}"
                       small.truncate.block
                         = "in #{@account.city}, #{@account.country}"
                       small.mt
