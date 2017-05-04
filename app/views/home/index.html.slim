@@ -53,7 +53,7 @@
                     - if statuses.sample == 'active'
                       .online
                     - else
-                      | 5mn
+                      = ['5mn', '3mn', '7mn'].sample
                   .col-sm-1.hidden-xs.info.bg-lighter.valign.go-right
                     = image_tag 'messenger.png', size: '40x40', class: 'icon-messenger messenger-trigger'
                   .col-sm-1.hidden-xs.info.bg-lighter.valign
